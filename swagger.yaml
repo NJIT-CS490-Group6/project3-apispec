@@ -266,7 +266,32 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Message'
-    # TODO: Add Pagination
+    post:
+      tags:
+        - chats
+      summary: send a message
+      operationId: sendThreadMessage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - message
+              properties:
+                message:
+                  type: string
+                  description: "message content"
+            example: |
+              {"message":"This is my message"}
+      responses:
+        200:
+          description: message sent
+          content:
+            appplication/json:
+              schema:
+                $ref: '#/components/schemas/Message'
 
 components:
   securitySchemes:
