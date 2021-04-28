@@ -174,25 +174,22 @@ paths:
             schema:
               type: object
               required:
-                - username
+                - participants
               properties:
-                username:
-                  type: string
-                  description: "username of the friend to add"
+                participants:
+                  type: array
+                  description: "array of user ids to be participants"
+                  items:
+                    type: string
             example: |
-              {"username":"lucasantarella"}
+              {"participants":["9e31e822-ae2b-4074-884f-a36e1a7c4654", "7993a837-3dc7-48d9-bf76-b32e19de95f0", "00b4f670-50ef-4fe3-b78c-be65ca1b94d2"]}
       responses:
         '200':
           description: thread created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
-              examples:
-                'friend':
-                  summary: friend
-                  value: |
-                    {"id":"f48c1eca-295d-4603-8433-bbfa645ce92a","username":"lucasantarella","name":"Luca Santarella","status":{"status":"available","timestamp":"2017-07-21T17:32:28Z"}}
+                $ref: '#/components/schemas/Thread'
         '400':
           description: bad request
           content:
