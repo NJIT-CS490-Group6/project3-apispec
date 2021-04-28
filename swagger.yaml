@@ -278,13 +278,13 @@ paths:
             schema:
               type: object
               required:
-                - message
+                - content
               properties:
-                message:
+                content:
                   type: string
                   description: "message content"
             example: |
-              {"message":"This is my message"}
+              {"content":"This is my message"}
       responses:
         200:
           description: message sent
