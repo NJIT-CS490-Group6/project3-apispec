@@ -292,6 +292,19 @@ paths:
             appplication/json:
               schema:
                 $ref: '#/components/schemas/Message'
+  /api/v1/me:
+    get:
+      tags:
+        - status
+      summary: get my profile
+      operationId: getProfile
+      responses:
+        200:
+          description: profile
+          content:
+            appplication/json:
+              schema:
+                $ref: '#/components/schemas/User'
   /api/v1/me/status:
     put:
       tags:
