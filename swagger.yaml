@@ -292,6 +292,33 @@ paths:
             appplication/json:
               schema:
                 $ref: '#/components/schemas/Message'
+  /api/v1/me/status:
+    put:
+      tags:
+        - status
+      summary: update my status
+      operationId: updateStatus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - status
+              properties:
+                status:
+                  type: integer
+                  description: status int
+            example:
+              status: 1
+      responses:
+        200:
+          description: status updated
+          content:
+            appplication/json:
+              schema:
+                $ref: '#/components/schemas/User'
 
 components:
   securitySchemes:
